@@ -1,0 +1,66 @@
+plugins {
+    id 'org.springframework.boot' version '2.1.6.RELEASE' apply false
+}
+
+group 'net.orekyuu'
+version '1.0-SNAPSHOT'
+
+repositories {
+    jcenter()
+}
+
+
+subprojects {
+    apply plugin: 'java'
+    sourceCompatibility = 12
+
+    repositories {
+        mavenCentral()
+        jcenter()
+    }
+
+    dependencies {
+        testImplementation platform('org.junit:junit-bom:5.5.0')
+
+        testImplementation 'org.junit.jupiter:junit-jupiter-api'
+        testImplementation 'org.junit.platform:junit-platform-commons'
+        testImplementation 'org.junit.jupiter:junit-jupiter-params'
+        testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine'
+        testImplementation 'org.assertj:assertj-core:3.12.2'
+        testImplementation 'org.mockito:mockito-core'
+    }
+
+    test {
+        useJUnitPlatform {
+            includeEngines 'junit-jupiter'
+        }
+    }
+}
+
+project("web") {
+    apply plugin: 'org.springframework.boot'
+    apply plugin: 'io.spring.dependency-management'
+
+    configurations {
+        developmentOnly
+        runtimeClasspath {
+            extendsFrom developmentOnly
+        }
+    }
+
+    def defaultEncoding = 'UTF-8'
+    [AbstractCompile, Javadoc].each {
+        tasks.withType(it).each { it.options.encoding = defaultEncoding }
+    }
+
+    dependencies {
+        implementation platform('org.springframework.boot:spring-boot-dependencies:2.1.6.RELEASE')
+
+        implementation 'org.springframework.boot:spring-boot-starter-actuator'
+        implementation 'org.springframework.boot:spring-boot-starter-web'
+        developmentOnly 'org.springframework.boot:spring-boot-devtools'
+        testImplementation('org.springframework.boot:spring-boot-starter-test') {
+            exclude group: 'junit'
+        }
+    }
+}
