@@ -1,4 +1,4 @@
 /**
- * ビジネスロジックを表現する基本型
+ * ビジネスロジックを表現する基本型９
  */
 package net.orekyuu.shop.core.domain.type;

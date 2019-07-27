@@ -1,21 +1,21 @@
 package net.orekyuu.shop.core.domain.model.product;
 
-import net.orekyuu.shop.core.domain.model.price.SellingPrice;
-
-import java.math.BigDecimal;
+import net.orekyuu.shop.core.domain.type.amount.Amount;
+import net.orekyuu.shop.core.domain.type.amount.Percentage;
+import net.orekyuu.shop.core.domain.type.amount.RoundingMode;
 
 /**
  * 販売手数料
  */
 public class SaleFee {
-    private static final BigDecimal SALE_FEE_RATE = BigDecimal.valueOf(0.3);
-    final BigDecimal value;
+    private static final Percentage SALE_FEE_RATE = new Percentage(30);
+    final Amount value;
 
-    SaleFee(BigDecimal value) {
+    SaleFee(Amount value) {
         this.value = value;
     }
 
-    public static SaleFee of(SellingPrice price) {
-        return new SaleFee(price.taxIncludedValue().multiply(SALE_FEE_RATE));
+    public static SaleFee calculate(WholesalePrice price) {
+        return new SaleFee(price.value.multiply(SALE_FEE_RATE, RoundingMode.切り上げ));
     }
 }
