@@ -1,0 +1,20 @@
+{
+  "name": "web-ui",
+  "version": "1.0.0",
+  "main": "index.js",
+  "author": "orekyuu",
+  "license": "MIT",
+  "scripts": {
+    "build": "webpack --config webpack.config.js"
+  },
+  "devDependencies": {
+    "css-loader": "^3.1.0",
+    "node-sass": "^4.12.0",
+    "sass-loader": "^7.1.0",
+    "style-loader": "^0.23.1",
+    "webpack": "^4.38.0",
+    "webpack-cli": "^3.3.6",
+    "webpack-dev-server": "^3.7.2",
+    "extract-text-webpack-plugin": "^4.0.0-beta.0"
+  }
+}
