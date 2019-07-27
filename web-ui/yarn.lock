@@ -3678,6 +3678,11 @@ resolve@^1.10.0:
   dependencies:
     path-parse "^1.0.6"
 
+ress@^1.2.2:
+  version "1.2.2"
+  resolved "https://registry.yarnpkg.com/ress/-/ress-1.2.2.tgz#4fd00681c8d3ceaa79f5de1e54aaad15617e9777"
+  integrity sha1-T9AGgcjTzqp59d4eVKqtFWF+l3c=
+
 ret@~0.1.10:
   version "0.1.15"
   resolved "https://registry.yarnpkg.com/ret/-/ret-0.1.15.tgz#b8a4825d5bdb1fc3f6f53c2bc33f81388681c7bc"
