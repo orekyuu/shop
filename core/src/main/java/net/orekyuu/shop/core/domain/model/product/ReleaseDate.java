@@ -1,4 +1,4 @@
-package net.orekyuu.shop.core.domain.product;
+package net.orekyuu.shop.core.domain.model.product;
 
 import java.time.LocalDate;
 import java.time.LocalDateTime;

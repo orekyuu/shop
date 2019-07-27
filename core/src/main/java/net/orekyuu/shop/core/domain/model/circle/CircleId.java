@@ -1,20 +1,20 @@
-package net.orekyuu.shop.core.domain.product;
+package net.orekyuu.shop.core.domain.model.circle;
 
 import java.util.Objects;
 import java.util.UUID;
 
 /**
- * 作品ID
+ * サークルID
  */
-public class ProductId {
+public class CircleId {
     final String value;
 
     @Deprecated
-    public ProductId(String value) {
+    public CircleId(String value) {
         this.value = value;
     }
 
-    public ProductId() {
+    public CircleId() {
         this(UUID.randomUUID().toString());
     }
 
@@ -26,8 +26,8 @@ public class ProductId {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        ProductId productId = (ProductId) o;
-        return value.equals(productId.value);
+        CircleId circleId = (CircleId) o;
+        return value.equals(circleId.value);
     }
 
     @Override

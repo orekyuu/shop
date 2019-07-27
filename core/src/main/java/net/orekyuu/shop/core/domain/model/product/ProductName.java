@@ -1,4 +1,4 @@
-package net.orekyuu.shop.core.domain.product;
+package net.orekyuu.shop.core.domain.model.product;
 
 /**
  * 作品名

@@ -1,4 +1,4 @@
-package net.orekyuu.shop.core.domain.price;
+package net.orekyuu.shop.core.domain.model.price;
 
 import java.math.BigDecimal;
 

@@ -1,6 +1,6 @@
-package net.orekyuu.shop.core.domain.product;
+package net.orekyuu.shop.core.domain.model.product;
 
-import net.orekyuu.shop.core.domain.price.SellingPrice;
+import net.orekyuu.shop.core.domain.model.price.SellingPrice;
 
 import java.math.BigDecimal;
 

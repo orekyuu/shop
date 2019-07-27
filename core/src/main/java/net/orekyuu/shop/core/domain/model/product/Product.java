@@ -1,6 +1,6 @@
-package net.orekyuu.shop.core.domain.product;
+package net.orekyuu.shop.core.domain.model.product;
 
-import net.orekyuu.shop.core.domain.circle.CircleId;
+import net.orekyuu.shop.core.domain.model.circle.CircleId;
 
 /**
  * 作品

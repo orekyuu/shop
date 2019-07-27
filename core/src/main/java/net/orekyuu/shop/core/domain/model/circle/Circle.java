@@ -1,4 +1,4 @@
-package net.orekyuu.shop.core.domain.circle;
+package net.orekyuu.shop.core.domain.model.circle;
 
 /**
  * サークル
