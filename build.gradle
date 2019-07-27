@@ -37,6 +37,12 @@ subprojects {
     }
 }
 
+project("core") {
+    dependencies {
+        implementation project(":identity")
+    }
+}
+
 //project("web") {
 //    apply plugin: 'org.springframework.boot'
 //    apply plugin: 'io.spring.dependency-management'
