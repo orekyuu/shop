@@ -1,7 +1,5 @@
 package net.orekyuu.shop.identity.domain.type;
 
-import java.util.function.Function;
-
 /**
  * 暗号化処理済みの文字列を表す型
  * @param <T>
@@ -13,7 +11,7 @@ public class Encrypted<T> {
         this.value = value;
     }
 
-    public static <T> Encrypted<T> from(T from, Function<T, byte[]> converter) {
-        return new Encrypted<>(converter.apply(from));
+    public static <T extends Encryptable> Encrypted<T> from(T from) {
+        return new Encrypted<>(from.encrypt());
     }
 }

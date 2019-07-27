@@ -1,3 +1,4 @@
 rootProject.name = 'shop'
 include(":core")
+include(":web")
 include(":identity")
