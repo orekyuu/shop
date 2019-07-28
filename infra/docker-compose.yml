@@ -15,3 +15,7 @@ services:
     command: mysqld --character-set-server=utf8mb4
     ports:
       - 3306:3306
+  shop-demo-redis:
+    image: redis:latest
+    ports:
+      - 6379:6379

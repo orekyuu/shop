@@ -1,22 +1,41 @@
 package net.orekyuu.shop.web.presentation.account;
 
+import net.orekyuu.shop.identity.domain.model.account.AccountMailAddress;
+import net.orekyuu.shop.web.application.repository.account.AccountRegistrationService;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.*;
 
 @Controller
 @RequestMapping("accounts")
 public class AccountRegistrationController {
 
-    @GetMapping("registration")
+    final AccountRegistrationService registrationService;
+
+    public AccountRegistrationController(AccountRegistrationService registrationService) {
+        this.registrationService = registrationService;
+    }
+
+    @GetMapping("registration/mail")
     public String showRegistration() {
         return "accounts/registration";
     }
 
     @PostMapping("registration/mail")
     public String sendRegistrationMail(@RequestParam("mail") String mail) {
+        registrationService.sendRegistrationLinkMail(new AccountMailAddress(mail));
         return "accounts/registration_mail";
+    }
+
+    @GetMapping("registration")
+    public String showRegistrationProfile(@RequestParam("token") String token, Model model) {
+        AccountMailAddress address = registrationService.findByToken(token).orElseThrow(InvalidMailTokenException::new);
+        model.addAttribute("mail", address.value());
+        return "accounts/registration_profile";
+    }
+
+    @ExceptionHandler(InvalidMailTokenException.class)
+    public String showInvalidTokenError() {
+        return "accounts/token_error";
     }
 }
