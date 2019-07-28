@@ -1,0 +1,17 @@
+version: '2'
+
+services:
+  shop-demo-mysql:
+    build:
+      context: ./mysql
+      args:
+        MYSQL_ROOT_PASSWORD: "password"
+    image: shop-demo-mysql:latest
+    volumes:
+      - ./mysql/db:/var/lib/mysql
+      - ./mysql/log:/var/log/mysql
+    environment:
+      MYSQL_ROOT_PASSWORD: password
+    command: mysqld --character-set-server=utf8mb4
+    ports:
+      - 3306:3306

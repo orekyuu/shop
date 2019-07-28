@@ -9,6 +9,13 @@ import java.util.Optional;
 
 @Repository
 public class DatabaseAccountRepository implements AccountRepository {
+
+    final AccountDao dao;
+
+    public DatabaseAccountRepository(AccountDao dao) {
+        this.dao = dao;
+    }
+
     @Override
     public Optional<Account> findById(AccountId id) {
         return Optional.empty();

@@ -4,6 +4,8 @@ build/
 out/
 web-ui/node_modules/
 web-ui/build/
+infra/mysql/log
+infra/mysql/db
 
 # Logs
 logs

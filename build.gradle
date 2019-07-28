@@ -69,6 +69,12 @@ project("web") {
         implementation 'org.springframework.boot:spring-boot-starter-security'
         implementation 'org.springframework.boot:spring-boot-starter-thymeleaf'
 
+        implementation 'org.seasar.doma.boot:doma-spring-boot-starter:1.1.1'
+        implementation('org.seasar.doma:doma:2.24.0')
+        annotationProcessor('org.seasar.doma:doma:2.24.0')
+        runtimeOnly 'mysql:mysql-connector-java'
+        implementation 'org.flywaydb:flyway-core'
+
         implementation project(':core')
 
         developmentOnly 'org.springframework.boot:spring-boot-devtools'
@@ -90,5 +96,18 @@ project("web") {
     processResources {
         // web-uiで作った青果物をコピーしてくる
         dependsOn copyWebUiResources
+    }
+
+    task copyDomaResources(type: Sync)  {
+        from sourceSets.main.resources.srcDirs
+        into compileJava.destinationDir
+        include 'doma.compile.config'
+        include 'META-INF/**/*.sql'
+        include 'META-INF/**/*.script'
+    }
+
+    compileJava {
+        dependsOn copyDomaResources
+        options.compilerArgs = ['-Adoma.domain.converters=net.orekyuu.shop.doma.DomainConvertersProvider']
     }
 }

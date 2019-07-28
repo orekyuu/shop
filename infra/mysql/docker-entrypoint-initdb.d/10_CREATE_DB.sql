@@ -1,0 +1,2 @@
+CREATE DATABASE shop_demo_development;
+CREATE DATABASE shop_demo_test;

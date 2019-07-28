@@ -23,4 +23,8 @@ public class Account {
     public AccountId id() {
         return id;
     }
+
+    public AccountMailAddress mail() {
+        return mailAddress;
+    }
 }
