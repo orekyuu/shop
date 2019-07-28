@@ -15,4 +15,12 @@ public class Account {
         this.password = password;
         this.mailAddress = mailAddress;
     }
+
+    public Encrypted<Password> password() {
+        return password;
+    }
+
+    public AccountId id() {
+        return id;
+    }
 }

@@ -44,8 +44,9 @@ subprojects {
 }
 
 project("core") {
+    apply plugin: 'java-library'
     dependencies {
-        implementation project(":identity")
+        api project(":identity")
     }
 }
 
