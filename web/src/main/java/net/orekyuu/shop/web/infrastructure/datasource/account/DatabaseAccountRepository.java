@@ -5,6 +5,7 @@ import net.orekyuu.shop.identity.domain.model.account.AccountId;
 import net.orekyuu.shop.web.domain.model.account.AccountRepository;
 import org.springframework.stereotype.Repository;
 
+import java.util.Collections;
 import java.util.Optional;
 
 @Repository
@@ -18,6 +19,13 @@ public class DatabaseAccountRepository implements AccountRepository {
 
     @Override
     public Optional<Account> findById(AccountId id) {
-        return Optional.empty();
+        return dao.findByIds(Collections.singleton(id)).stream()
+                .findFirst()
+                .map(AccountTable::toAccount);
+    }
+
+    @Override
+    public void insert(Account account) {
+        dao.insert(new AccountTable(account));
     }
 }

@@ -1,7 +1,10 @@
 package net.orekyuu.shop.web.presentation.account;
 
+import net.orekyuu.shop.identity.domain.model.account.AccountId;
 import net.orekyuu.shop.identity.domain.model.account.AccountMailAddress;
+import net.orekyuu.shop.identity.domain.model.account.Password;
 import net.orekyuu.shop.web.application.repository.account.AccountRegistrationService;
+import net.orekyuu.shop.web.application.repository.account.InvalidMailTokenException;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
@@ -31,7 +34,20 @@ public class AccountRegistrationController {
     public String showRegistrationProfile(@RequestParam("token") String token, Model model) {
         AccountMailAddress address = registrationService.findByToken(token).orElseThrow(InvalidMailTokenException::new);
         model.addAttribute("mail", address.value());
+        model.addAttribute("token", token);
         return "accounts/registration_profile";
+    }
+
+    @PostMapping("registration")
+    public String registrationProfile(
+            @RequestParam("username") String username,
+            @RequestParam("password") String password,
+            @RequestParam("password_confirm") String passwordConfirm,
+            @RequestParam("token") String token,
+            Model model) {
+        //TODO: バリバリのバリデーション
+        registrationService.registration(new AccountId(username), new Password(password), token);
+        return "redirect:/";
     }
 
     @ExceptionHandler(InvalidMailTokenException.class)

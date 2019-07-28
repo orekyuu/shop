@@ -1,4 +1,4 @@
-package net.orekyuu.shop.web.presentation.account;
+package net.orekyuu.shop.web.application.repository.account;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.ResponseStatus;
