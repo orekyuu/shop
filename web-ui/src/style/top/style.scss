@@ -1,0 +1,25 @@
+@import "../flat_design_colors_full";
+
+.header {
+  background-color: white;
+  width: 100%;
+  padding: 16px 32px;
+  border-bottom: $silver-600 solid 1px;
+
+  .header-content {
+    margin: 0 auto;
+    width: 980px;
+    overflow: hidden;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+
+    .links {
+      a {
+        padding: 0 8px;
+        box-sizing: border-box;
+        text-align: center;
+      }
+    }
+  }
+}

@@ -1,1 +1,11 @@
 @import "~ress";
+@import "flat_design_colors_full";
+@import "top/style";
+
+* {
+  color: $asbestos-900;
+}
+
+body {
+  background-color: $silver-50;
+}
