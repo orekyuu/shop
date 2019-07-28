@@ -1,0 +1,59 @@
+@import "flat_design_colors_full";
+
+.wrapper {
+  width: 100%;
+
+  .header {
+    .header-content {
+      display: flex;
+      overflow: hidden;
+      width: 980px;
+      margin: 0 auto;
+
+      .header-link {
+        color: $silver-50;
+        text-decoration: none;
+        margin: 5px 8px;
+        font-size: 12px;
+      }
+    }
+    width: 100%;
+    background-color: $midnight-blue-900;
+  }
+
+  .content-wrapper {
+    width: 980px;
+    margin: 0 auto;
+  }
+}
+
+.login-form-box {
+  background-color: white;
+  margin: 64px auto;
+  width: 100%;
+
+  .login-form-box-header {
+    width: 100%;
+    background-color: $midnight-blue-900;
+    color: $silver-50;
+    padding: 16px;
+    font-size: 24px;
+    font-weight: 600;
+  }
+
+  .login-form-box-body {
+    padding: 32px;
+    .login-form-box-body-inline {
+      background-color: $silver-50;
+      border: $silver-600 solid 1px;
+      padding: 16px;
+    }
+  }
+}
+
+input, button, select, option {
+  border: $silver-600 solid 1px;
+  background-color: white;
+  padding: 3px;
+  font-size: 14px;
+}

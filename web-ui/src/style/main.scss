@@ -1,6 +1,8 @@
 @import "~ress";
 @import "flat_design_colors_full";
 @import "top/style";
+@import "common";
+@import "register_account";
 
 * {
   color: $asbestos-900;

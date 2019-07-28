@@ -1,0 +1,25 @@
+@import "flat_design_colors_full";
+
+.register-account-send-mail-form {
+  .register-form-header {
+    font-size: 18px;
+  }
+  .register-form-mail {
+    width: 100%;
+    margin: 8px 0;
+  }
+
+  .register-form-submit {
+    margin-top: 16px;
+    text-align: center;
+    width: 100%;
+    padding: 8px;
+    color: $silver-50;
+    font-size: 16px;
+    background-color: $peter-river-500;
+
+    &:hover {
+      background-color: $peter-river-400;
+    }
+  }
+}

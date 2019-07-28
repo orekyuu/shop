@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title layout:title-pattern="$LAYOUT_TITLE - $CONTENT_TITLE">Shop Demo</title>
+    <link rel="stylesheet" href="." th:href="@{/assets/style.css}">
+</head>
+<body>
+<div class="wrapper">
+    <div class="header">
+        <div class="header-content">
+            <a href="" class="header-link">同人</a>
+            <a href="" class="header-link">コミック</a>
+            <a href="" class="header-link">PCソフト</a>
+        </div>
+    </div>
+    <div class="content-wrapper">
+        <th:block layout:fragment="layout-content">
+            <p>Default layout content</p>
+        </th:block>
+    </div>
+</div>
+</body>
+</html>
