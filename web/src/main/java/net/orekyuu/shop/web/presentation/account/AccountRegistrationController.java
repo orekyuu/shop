@@ -1,12 +1,12 @@
 package net.orekyuu.shop.web.presentation.account;
 
-import net.orekyuu.shop.identity.domain.model.account.AccountId;
 import net.orekyuu.shop.identity.domain.model.account.AccountMailAddress;
-import net.orekyuu.shop.identity.domain.model.account.Password;
 import net.orekyuu.shop.web.application.repository.account.AccountRegistrationService;
 import net.orekyuu.shop.web.application.repository.account.InvalidMailTokenException;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
 @Controller
@@ -17,6 +17,12 @@ public class AccountRegistrationController {
 
     public AccountRegistrationController(AccountRegistrationService registrationService) {
         this.registrationService = registrationService;
+    }
+
+    @ModelAttribute("accountRegistrationForm")
+    AccountRegistrationForm accountRegistrationForm() {
+        AccountRegistrationForm accountRegistrationForm = new AccountRegistrationForm();
+        return accountRegistrationForm;
     }
 
     @GetMapping("registration/mail")
@@ -39,14 +45,11 @@ public class AccountRegistrationController {
     }
 
     @PostMapping("registration")
-    public String registrationProfile(
-            @RequestParam("username") String username,
-            @RequestParam("password") String password,
-            @RequestParam("password_confirm") String passwordConfirm,
-            @RequestParam("token") String token,
-            Model model) {
-        //TODO: バリバリのバリデーション
-        registrationService.registration(new AccountId(username), new Password(password), token);
+    public String registrationProfile(@Validated @ModelAttribute("accountRegistrationForm") AccountRegistrationForm form, BindingResult result) {
+        if (result.hasErrors()) {
+            return "accounts/registration_profile";
+        }
+        registrationService.registration(form.accountId(), form.password(), form.token);
         return "redirect:/";
     }
 
