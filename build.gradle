@@ -98,7 +98,7 @@ project("web") {
     }
 
     processResources {
-        // web-uiで作った青果物をコピーしてくる
+        // web-uiで作った成果物をコピーしてくる
         dependsOn copyWebUiResources
     }
 
