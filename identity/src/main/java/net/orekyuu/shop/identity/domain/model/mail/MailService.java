@@ -1,4 +1,4 @@
-package net.orekyuu.shop.web.domain.model.mail;
+package net.orekyuu.shop.identity.domain.model.mail;
 
 import net.orekyuu.shop.identity.domain.model.account.AccountRegistrationLinkMail;
 

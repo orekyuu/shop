@@ -2,8 +2,8 @@ package net.orekyuu.shop.web.application.repository.account;
 
 import net.orekyuu.shop.identity.domain.model.account.*;
 import net.orekyuu.shop.identity.domain.type.Encrypted;
-import net.orekyuu.shop.web.domain.model.account.AccountRepository;
-import net.orekyuu.shop.web.domain.model.mail.MailService;
+import net.orekyuu.shop.identity.domain.model.account.AccountRepository;
+import net.orekyuu.shop.identity.domain.model.mail.MailService;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;

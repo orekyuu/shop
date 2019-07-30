@@ -1,4 +1,4 @@
-package net.orekyuu.shop.web.domain.model.account;
+package net.orekyuu.shop.web.infrastructure.security;
 
 import net.orekyuu.shop.identity.domain.model.account.Account;
 import org.springframework.security.core.GrantedAuthority;

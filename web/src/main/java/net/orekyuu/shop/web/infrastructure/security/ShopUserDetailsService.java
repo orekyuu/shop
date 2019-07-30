@@ -2,8 +2,7 @@ package net.orekyuu.shop.web.infrastructure.security;
 
 import net.orekyuu.shop.identity.domain.model.account.Account;
 import net.orekyuu.shop.identity.domain.model.account.AccountId;
-import net.orekyuu.shop.web.domain.model.account.AccountRepository;
-import net.orekyuu.shop.web.domain.model.account.ShopUserDetails;
+import net.orekyuu.shop.identity.domain.model.account.AccountRepository;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;

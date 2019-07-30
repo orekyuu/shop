@@ -1,9 +1,8 @@
 .gradle
-.idea
 build/
+.idea
 out/
-web-ui/node_modules/
-web-ui/build/
+node_modules/
 infra/mysql/log
 infra/mysql/db
 

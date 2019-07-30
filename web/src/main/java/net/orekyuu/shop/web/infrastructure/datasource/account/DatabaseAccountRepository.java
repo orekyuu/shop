@@ -2,7 +2,7 @@ package net.orekyuu.shop.web.infrastructure.datasource.account;
 
 import net.orekyuu.shop.identity.domain.model.account.Account;
 import net.orekyuu.shop.identity.domain.model.account.AccountId;
-import net.orekyuu.shop.web.domain.model.account.AccountRepository;
+import net.orekyuu.shop.identity.domain.model.account.AccountRepository;
 import org.springframework.stereotype.Repository;
 
 import java.util.Collections;
