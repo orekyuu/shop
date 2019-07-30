@@ -1,0 +1,38 @@
+version: 2
+jobs:
+  build:
+    docker:
+      - image: circleci/openjdk:11.0.1-jdk-node-browsers
+      - image: mysql:8
+        environment:
+          MYSQL_DATABASE: shop_demo_test
+          MYSQL_ROOT_PASSWORD: password
+      - image: circleci/redis:4-alpine3.8
+    working_directory: ~/repo
+    environment:
+      TERM: dumb
+      GRADLE_OPTS: -Xmx2048m -Dorg.gradle.daemon=false # CIがOOMで落ちる対策 see: https://hisa-tech.site/2018/12/755
+    steps:
+      - checkout
+      - restore_cache:
+          keys:
+            - v1-dependencies-{{ checksum "build.gradle" }}
+            - v1-dependencies-{{ checksum "./web-ui/yarn.lock" }}
+      - run: ./gradlew dependencies && cd web-ui && yarn install
+      - save_cache:
+          paths:
+            - ~/.gradle
+          key: v1-dependencies-{{ checksum "build.gradle" }}
+      - save_cache:
+          paths:
+            - ./web-ui/node_modules
+          key: v1-dependencies-{{ checksum "./web-ui/yarn.lock" }}
+      - run: ./gradlew test
+      - run:
+          name: Save test results
+          command: |
+            mkdir -p ~/junit/
+            find . -type f -regex ".*/build/test-results/.*xml" -exec cp {} ~/junit/ \;
+          when: always
+      - store_test_results:
+          path: ~/junit
