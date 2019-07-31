@@ -112,6 +112,6 @@ project("web") {
 
     compileJava {
         dependsOn copyDomaResources
-        options.compilerArgs = ['-Adoma.domain.converters=net.orekyuu.shop.doma.DomainConvertersProvider']
+        options.compilerArgs = ['-Adoma.domain.converters=net.orekyuu.shop.web.infrastructure.doma.DomainConvertersProvider']
     }
 }

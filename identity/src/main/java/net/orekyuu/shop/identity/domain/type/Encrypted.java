@@ -1,6 +1,5 @@
 package net.orekyuu.shop.identity.domain.type;
 
-import java.nio.charset.StandardCharsets;
 import java.util.function.Function;
 
 /**
@@ -8,18 +7,20 @@ import java.util.function.Function;
  * @param <T>
  */
 public class Encrypted<T> {
-    final byte[] value;
+    final String value;
 
-    Encrypted(byte[] value) {
+    @Deprecated
+    public Encrypted(String value) {
         this.value = value;
     }
 
-    public static <T> Encrypted<T> from(T from, Function<T, byte[]> converter) {
-        return new Encrypted<>(converter.apply(from));
+    public static <T> Encrypted<T> from(T from, Function<T, String> converter) {
+        String value = converter.apply(from);
+        return new Encrypted<>(value);
     }
 
     @Override
     public String toString() {
-        return new String(value, StandardCharsets.UTF_8);
+        return value;
     }
 }

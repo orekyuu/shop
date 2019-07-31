@@ -12,7 +12,6 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.transaction.annotation.Transactional;
 
-import java.nio.charset.StandardCharsets;
 import java.util.List;
 import java.util.function.Function;
 
@@ -27,7 +26,7 @@ class AccountDaoTest {
     @Autowired
     PasswordEncoder encoder;
 
-    Function<Password, byte[]> func = pass -> encoder.encode(pass.toString()).getBytes(StandardCharsets.UTF_8);
+    Function<Password, String> func = pass -> encoder.encode(pass.rawText());
 
     Account orekyuuAccount;
 

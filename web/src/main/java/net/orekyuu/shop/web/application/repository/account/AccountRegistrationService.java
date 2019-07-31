@@ -1,14 +1,12 @@
 package net.orekyuu.shop.web.application.repository.account;
 
 import net.orekyuu.shop.identity.domain.model.account.*;
-import net.orekyuu.shop.identity.domain.type.Encrypted;
-import net.orekyuu.shop.identity.domain.model.account.AccountRepository;
 import net.orekyuu.shop.identity.domain.model.mail.MailService;
+import net.orekyuu.shop.identity.domain.type.Encrypted;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import java.nio.charset.StandardCharsets;
 import java.time.LocalDateTime;
 import java.util.Optional;
 
@@ -41,7 +39,7 @@ public class AccountRegistrationService {
 
     public Account registration(AccountId accountId, Password password, String token) {
         AccountRegistrationToken registrationToken = tokenStore.find(token).orElseThrow(InvalidMailTokenException::new);
-        Account account = new Account(accountId, Encrypted.from(password, it -> encoder.encode(it.toString()).getBytes(StandardCharsets.UTF_8)), registrationToken.address());
+        Account account = new Account(accountId, Encrypted.from(password, it -> encoder.encode(it.rawText())), registrationToken.address());
         accountRepository.insert(account);
         tokenStore.consume(token);
         return account;

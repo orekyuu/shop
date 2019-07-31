@@ -1,5 +1,6 @@
-package net.orekyuu.shop.identity.domain.model.account;
+package net.orekyuu.shop.web.infrastructure.doma;
 
+import net.orekyuu.shop.identity.domain.model.account.AccountMailAddress;
 import org.seasar.doma.ExternalDomain;
 import org.seasar.doma.jdbc.domain.DomainConverter;
 
