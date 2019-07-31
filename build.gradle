@@ -77,7 +77,7 @@ project("web") {
         runtimeOnly 'mysql:mysql-connector-java'
         implementation 'org.flywaydb:flyway-core'
 
-        implementation 'io.lettuce:lettuce-core:5.1.7.RELEASE'
+        implementation 'io.lettuce:lettuce-core:5.1.8.RELEASE'
 
         implementation project(':core')
 
