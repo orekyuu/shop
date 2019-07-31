@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" xmlns:th="http://www.thymeleaf.org">
+<html xmlns:sec="http://www.thymeleaf.org/extras/spring-security" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" xmlns:th="http://www.thymeleaf.org">
 <head>
     <title layout:title-pattern="$LAYOUT_TITLE - $CONTENT_TITLE">Shop Demo</title>
     <link rel="stylesheet" href="." th:href="@{/assets/style.css}">
@@ -7,10 +7,19 @@
 <body>
 <div class="wrapper">
     <div class="header">
-        <div class="header-content">
+        <div>
             <a href="" class="header-link">同人</a>
             <a href="" class="header-link">コミック</a>
             <a href="" class="header-link">PCソフト</a>
+        </div>
+        <div>
+            <th:block sec:authorize="isAuthenticated()">
+                <a th:href="@{/logout}" href="/logout" class="header-link">ログアウト</a>
+            </th:block>
+            <th:block sec:authorize="!isAuthenticated()">
+                <a th:href="@{/accounts/registration/mail}" href="/accounts/registration/mail" class="header-link">新規登録</a>
+                <a th:href="@{/login}" href="/login" class="header-link">ログイン</a>
+            </th:block>
         </div>
     </div>
     <div class="content-wrapper">
