@@ -63,12 +63,14 @@ project("web") {
 
     dependencies {
         implementation platform('org.springframework.boot:spring-boot-dependencies:2.1.6.RELEASE')
+        implementation platform('org.springframework.cloud:spring-cloud-dependencies:Greenwich.SR1')
 
         implementation 'org.springframework.boot:spring-boot-starter-actuator'
         implementation 'org.springframework.boot:spring-boot-starter-web'
         implementation 'org.springframework.boot:spring-boot-starter-security'
         implementation 'org.springframework.boot:spring-boot-starter-thymeleaf'
         implementation 'org.springframework.boot:spring-boot-starter-mail'
+        implementation 'org.springframework.cloud:spring-cloud-starter-aws'
         implementation 'nz.net.ultraq.thymeleaf:thymeleaf-layout-dialect:2.4.1'
         implementation 'org.thymeleaf.extras:thymeleaf-extras-springsecurity5:3.0.4.RELEASE'
 
