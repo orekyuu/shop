@@ -1,0 +1,43 @@
+@import "~ress";
+@import "flat_design_colors_full";
+
+.floor-header {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  padding: 0 16px;
+  background-color: white;
+}
+.floor-tab-wrapper {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  padding: 0 16px;
+  .floor-tab {
+    display: flex;
+    flex: 1;
+  }
+
+  .floor-tab-submenu {
+    display: flex;
+  }
+}
+
+.floor-content-wrapper {
+  width: 100%;
+  display: flex;
+  padding: 10px;
+  background-color: white;
+  .left {
+    width: 180px;
+  }
+
+  .center {
+    flex: 1;
+    margin: 0 10px;
+  }
+
+  .right {
+    width: 180px;
+  }
+}

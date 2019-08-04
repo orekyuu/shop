@@ -1,0 +1,50 @@
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorator="layout/main">
+<head>
+    <title layout:title-pattern="$CONTENT_TITLE">Shop Demo</title>
+</head>
+<th:block layout:fragment="layout-content-wrapper">
+    <div class="floor-header">
+        <h1 class="logo"><a href="">Shop Demo</a></h1>
+        <div class="floor-header-content">
+
+        </div>
+    </div>
+    <div class="floor-tab-wrapper">
+        <div class="floor-tab">
+            <a href="" class="active">xxxx</a>
+            <a href="">xxxx</a>
+            <a href="">xxxx</a>
+        </div>
+        <div class="floor-tab-submenu">
+            <a href="" class="floor-tab-info">
+                <p class="icon-point"></p>
+                <div class="floor-tab-info">ポイント 10pt</div>
+            </a>
+            <a href="" class="floor-tab-info">
+                <p class="icon-coupon"></p>
+                <div class="floor-tab-info">クーポン 0枚</div>
+            </a>
+            <a href="" class="floor-tab-info-button">成人向けへ</a>
+        </div>
+    </div>
+    <div class="floor-content-wrapper">
+        <div class="left">
+            <th:block layout:fragment="left">
+
+            </th:block>
+        </div>
+        <div class="center">
+            <th:block layout:fragment="center">
+
+            </th:block>
+        </div>
+        <div class="right">
+            <th:block layout:fragment="right">
+
+            </th:block>
+        </div>
+    </div>
+</th:block>
+</html>
