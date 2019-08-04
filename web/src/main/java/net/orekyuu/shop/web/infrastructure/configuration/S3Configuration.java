@@ -11,6 +11,7 @@ import com.amazonaws.services.s3.model.Bucket;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.Profile;
 
 import javax.annotation.PostConstruct;
 import java.util.List;
@@ -27,15 +28,6 @@ public class S3Configuration {
         this.url = url;
         this.accessKey = accessKey;
         this.secretKey = secretKey;
-    }
-
-    @PostConstruct
-    void setup() {
-        AmazonS3 amazonS3 = amazonS3();
-        List<Bucket> bucketList = amazonS3.listBuckets();
-        if (bucketList.stream().noneMatch(bucket -> bucket.getName().equals("shop-demo"))) {
-            amazonS3.createBucket("shop-demo");
-        }
     }
 
     @Bean
