@@ -19,3 +19,12 @@ services:
     image: redis:latest
     ports:
       - 6379:6379
+  shop-demo-storage:
+    image: bitnami/minio:2019.8.1-r1
+    ports:
+      - 9000:9000
+    volumes:
+      - ./minio/data:/data
+    environment:
+      MINIO_ACCESS_KEY: minio_access_key
+      MINIO_SECRET_KEY: minio_secret_key

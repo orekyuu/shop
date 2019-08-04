@@ -5,6 +5,7 @@ out/
 node_modules/
 infra/mysql/log
 infra/mysql/db
+infra/minio/data
 
 # Logs
 logs
