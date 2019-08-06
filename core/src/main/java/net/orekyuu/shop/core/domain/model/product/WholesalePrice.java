@@ -13,4 +13,8 @@ public class WholesalePrice {
     public WholesalePrice(Amount value) {
         this.value = value;
     }
+
+    public Amount value() {
+        return value;
+    }
 }

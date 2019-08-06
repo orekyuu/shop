@@ -14,6 +14,10 @@ public class ReleaseDate implements Comparable<ReleaseDate> {
         this.value = value;
     }
 
+    public LocalDate date() {
+        return value;
+    }
+
     public String text() {
         return value.format(DateTimeFormatter.ofPattern("uuuu年MM月dd日"));
     }

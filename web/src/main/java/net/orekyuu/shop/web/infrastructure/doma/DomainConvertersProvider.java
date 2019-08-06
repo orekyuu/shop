@@ -6,6 +6,14 @@ import org.seasar.doma.DomainConverters;
         AccountIdConverter.class,
         AccountMailAddressConverter.class,
         EncryptedConverter.class,
+        ProductIdConverter.class,
+        ProductNameConverter.class,
+        ProductDescriptionConverter.class,
+        CircleIdConverter.class,
+        CircleNameConverter.class,
+        ReleaseDateConverter.class,
+        WholesalePriceConverter.class,
+        AssetIdConverter.class
 })
 public class DomainConvertersProvider {
 }

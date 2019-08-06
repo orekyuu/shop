@@ -7,19 +7,19 @@ import java.util.UUID;
  * サークルID
  */
 public class CircleId {
-    final String value;
+    final Long value;
 
     @Deprecated
-    public CircleId(String value) {
+    public CircleId(Long value) {
         this.value = value;
     }
 
-    public CircleId() {
-        this(UUID.randomUUID().toString());
+    public Long value() {
+        return value;
     }
 
     public String text() {
-        return value;
+        return value.toString();
     }
 
     @Override

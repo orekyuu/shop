@@ -11,4 +11,8 @@ public class Circle {
         this.id = id;
         this.name = name;
     }
+
+    public CircleId id() {
+        return id;
+    }
 }

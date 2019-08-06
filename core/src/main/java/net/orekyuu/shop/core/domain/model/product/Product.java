@@ -12,13 +12,15 @@ public class Product {
     final CircleId circle;
     final ReleaseDate release;
     final ProductBasePrice price;
+    final ProductImages productImages;
 
-    public Product(ProductId id, ProductName name, ProductDescription description, CircleId circle, ReleaseDate release, ProductBasePrice price) {
+    public Product(ProductId id, ProductName name, ProductDescription description, CircleId circle, ReleaseDate release, ProductBasePrice price, ProductImages productImages) {
         this.id = id;
         this.name = name;
         this.description = description;
         this.circle = circle;
         this.release = release;
         this.price = price;
+        this.productImages = productImages;
     }
 }

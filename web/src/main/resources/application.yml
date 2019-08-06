@@ -20,6 +20,7 @@ spring:
 
 doma:
   dialect: mysql
+  naming: snake_lower_case
 cloud:
   aws:
     credentials:

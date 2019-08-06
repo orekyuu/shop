@@ -7,19 +7,19 @@ import java.util.UUID;
  * 作品ID
  */
 public class ProductId {
-    final String value;
+    final Long value;
 
     @Deprecated
-    public ProductId(String value) {
+    public ProductId(Long value) {
         this.value = value;
     }
 
-    public ProductId() {
-        this(UUID.randomUUID().toString());
+    public Long value() {
+        return value;
     }
 
     public String text() {
-        return value;
+        return value.toString();
     }
 
     @Override
