@@ -82,6 +82,8 @@ project("web") {
 
         implementation 'io.lettuce:lettuce-core:5.1.8.RELEASE'
 
+        implementation 'net.orekyuu:kt-mapper:0.0.2'
+
         implementation project(':core')
 
         developmentOnly 'org.springframework.boot:spring-boot-devtools'

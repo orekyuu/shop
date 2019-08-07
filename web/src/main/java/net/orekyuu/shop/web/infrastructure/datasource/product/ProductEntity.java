@@ -7,6 +7,7 @@ import org.seasar.doma.Column;
 import org.seasar.doma.Entity;
 
 import java.time.LocalDateTime;
+import java.util.List;
 
 @Entity(immutable = true)
 public class ProductEntity {
@@ -39,5 +40,9 @@ public class ProductEntity {
         this.registeredAt = registeredAt;
         this.productImageId = productImageId;
         this.imageCreatedAt = imageCreatedAt;
+    }
+
+    Product toProduct() {
+        return new Product(id, name, description, circleId, releaseDate, new ProductBasePrice(wholesalePrice), new ProductImages(List.of(new ProductImage(productImageId))));
     }
 }

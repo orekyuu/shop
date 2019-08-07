@@ -18,6 +18,11 @@ public class ProductBasePrice {
         this.fee = fee;
     }
 
+    public ProductBasePrice(WholesalePrice value) {
+        this.value = value;
+        this.fee = SaleFee.calculate(value);
+    }
+
     /**
      * 税込価格
      */

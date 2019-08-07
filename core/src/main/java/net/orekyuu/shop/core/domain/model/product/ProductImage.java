@@ -8,4 +8,8 @@ public class ProductImage {
     public ProductImage(AssetId imageId) {
         this.imageId = imageId;
     }
+
+    public AssetId id() {
+        return imageId;
+    }
 }

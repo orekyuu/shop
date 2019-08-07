@@ -2,11 +2,9 @@ package net.orekyuu.shop.web.infrastructure.datasource.product;
 
 import net.orekyuu.shop.core.domain.model.circle.CircleId;
 import net.orekyuu.shop.core.domain.model.product.ProductId;
-import org.seasar.doma.Dao;
-import org.seasar.doma.Insert;
-import org.seasar.doma.Select;
-import org.seasar.doma.SelectType;
+import org.seasar.doma.*;
 import org.seasar.doma.boot.ConfigAutowireable;
+import org.seasar.doma.jdbc.BatchResult;
 import org.seasar.doma.jdbc.Result;
 
 import java.util.List;
@@ -35,4 +33,7 @@ public interface ProductDao {
 
     @Insert
     Result<ProductImageTable> insertImage(ProductImageTable table);
+
+    @BatchInsert
+    BatchResult<ProductImageTable> insertImage(List<ProductImageTable> table);
 }

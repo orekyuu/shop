@@ -12,13 +12,9 @@ import java.util.Optional;
  */
 public interface ProductRepository {
 
-    default Optional<Product> findReleasedById(LocalDateTime time, ProductId id) {
-        return findReleasedByIds(time, Collections.singletonList(id)).stream().findFirst();
-    }
-
-    List<Product> findReleasedByIds(LocalDateTime time, Iterable<ProductId> ids);
+    List<Product> findByIds(Iterable<ProductId> ids);
 
     List<Product> findByCircle(CircleId circleId);
 
-    ProductId registrationProduct(CircleId circleId, ProductName name, ProductDescription description, ReleaseDate releaseDate, ProductBasePrice price);
+    ProductId registrationProduct(CircleId circleId, ProductName name, ProductDescription description, ReleaseDate releaseDate, WholesalePrice price, ProductImages images);
 }

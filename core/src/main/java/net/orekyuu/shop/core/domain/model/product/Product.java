@@ -12,7 +12,7 @@ public class Product {
     final CircleId circle;
     final ReleaseDate release;
     final ProductBasePrice price;
-    final ProductImages productImages;
+    ProductImages productImages;
 
     public Product(ProductId id, ProductName name, ProductDescription description, CircleId circle, ReleaseDate release, ProductBasePrice price, ProductImages productImages) {
         this.id = id;
@@ -22,5 +22,25 @@ public class Product {
         this.release = release;
         this.price = price;
         this.productImages = productImages;
+    }
+
+    public ProductId id() {
+        return id;
+    }
+
+    public ProductImages images() {
+        return productImages;
+    }
+
+    public void addImage(ProductImage image) {
+        productImages = productImages.plus(image);
+    }
+
+    public void addImage(ProductImages images) {
+        productImages = productImages.plus(images);
+    }
+
+    public ProductName name() {
+        return name;
     }
 }
