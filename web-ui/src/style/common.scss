@@ -1,5 +1,3 @@
-@import "flat_design_colors_full";
-
 .wrapper {
   width: 100%;
 
@@ -46,11 +44,4 @@
       padding: 16px;
     }
   }
-}
-
-input, button, select, option {
-  border: $silver-600 solid 1px;
-  background-color: white;
-  padding: 3px;
-  font-size: 14px;
 }

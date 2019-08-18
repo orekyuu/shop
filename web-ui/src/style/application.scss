@@ -1,7 +1,8 @@
-@import "~ress";
 @import "flat_design_colors_full";
-@import "top/style";
+@import "~ress";
+@import "component/_form";
 @import "common";
+@import "top/style";
 @import "register_account";
 @import "floor";
 

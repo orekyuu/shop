@@ -1,7 +1,9 @@
 package net.orekyuu.shop.web.infrastructure.datasource.product;
 
+import net.orekyuu.shop.core.domain.model.circle.CircleHomePage;
 import net.orekyuu.shop.core.domain.model.circle.CircleId;
 import net.orekyuu.shop.core.domain.model.circle.CircleName;
+import net.orekyuu.shop.core.domain.model.circle.CircleSupportMailAddress;
 import net.orekyuu.shop.core.domain.model.product.*;
 import net.orekyuu.shop.core.domain.type.amount.Amount;
 import net.orekyuu.shop.core.domain.type.assets.AssetId;
@@ -48,6 +50,8 @@ class DatabaseProductRepositoryTest {
     CircleTable circleTable = new CircleTable(
             new CircleId(-1L),
             new CircleName("test circle"),
+            new CircleHomePage("https://example.test"),
+            new CircleSupportMailAddress("support@example.test"),
             LocalDateTime.now(),
             accountTable.toAccount().id());
 

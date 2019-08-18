@@ -1,0 +1,58 @@
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorator="layout/main">
+<head>
+    <title>新規サークル登録</title>
+</head>
+<th:block layout:fragment="layout-content">
+    <div class="login-form-box">
+        <h1 class="login-form-box-header">サークル登録</h1>
+        <div class="login-form-box-body">
+            <form th:action="@{/circle/registration}" method="post" action="" th:object="${circleRegistrationForm}">
+                <div class="form-row-wrapper">
+                    <div class="form-label-wrapper">
+                        <label for="circle">サークル名</label>
+                    </div>
+                    <div class="form-body-wrapper">
+                        <input id="circle" type="text" th:field="*{name}"
+                               th:classappend="${#fields.hasErrors('name') ? 'error' : ''}">
+                        <p th:errors="*{name}" class="error-message">error</p>
+                    </div>
+                    <div class="form-body-help"></div>
+                </div>
+                <div class="form-row-wrapper">
+                    <div class="form-label-wrapper">
+                        <label for="mail">ユーザーサポート用<br>メールアドレス</label>
+                    </div>
+                    <div class="form-body-wrapper">
+                        <input id="mail" type="email" th:field="*{supportMail}"
+                               th:classappend="${#fields.hasErrors('supportMail') ? 'error' : ''}">
+                        <p th:errors="*{supportMail}" class="error-message">error</p>
+                    </div>
+                    <div class="form-body-help">
+                        (半角英数字)
+                        <ul>
+                            <li>携帯メールは使用できません</li>
+                            <li>購入者からの問い合わせの際に公開されます</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="form-row-wrapper">
+                    <div class="form-label-wrapper">
+                        <label for="homepage">公式サイト</label>
+                    </div>
+                    <div class="form-body-wrapper">
+                        <input id="homepage" type="url" placeholder="https://" th:field="*{homepage}"
+                               th:classappend="${#fields.hasErrors('homepage') ? 'error' : ''}">
+                        <p th:errors="*{homepage}" class="error-message">error</p>
+                    </div>
+                    <div class="form-body-help">
+                        (半角英数字)
+                    </div>
+                </div>
+                <button class="register-form-submit" type="submit">サークル登録</button>
+            </form>
+        </div>
+    </div>
+</th:block>
+</html>

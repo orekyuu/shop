@@ -1,0 +1,73 @@
+button, input, select, textarea {
+  border: $silver-600 solid 1px;
+  padding: 3px;
+  font-size: 14px;
+
+  &.error {
+    border-color: $alizarin;
+  }
+}
+
+input[type=submit], button[type=submit] {
+  text-align: center;
+  width: 100%;
+  padding: 8px;
+  color: $silver-50;
+  font-size: 16px;
+  background-color: $peter-river-500;
+
+  &:hover {
+    background-color: $peter-river-400;
+  }
+}
+
+.form-row-wrapper {
+  width: 100%;
+  display: flex;
+  padding: 10px 0;
+  align-items: baseline;
+
+  .form-label-wrapper {
+    width: 200px;
+    word-wrap: break-word;
+    padding: 0 10px;
+  }
+
+  .form-body-help {
+    width: 200px;
+    word-wrap: break-word;
+    padding: 0 10px;
+
+    ul {
+      list-style-type: none;
+    }
+  }
+
+  .form-body-wrapper {
+    flex: 1;
+    padding: 0 10px;
+
+    ul {
+      list-style-type: none;
+
+      li {
+        display: inline-block;
+        padding: 0 10px;
+
+        &:first-of-type {
+          padding-left: 0;
+        }
+
+        &:last-of-type {
+          padding-right: 0;
+        }
+      }
+    }
+
+    p.error-message {
+      color: $alizarin;
+      word-wrap: break-word;
+      margin: 5px 0;
+    }
+  }
+}

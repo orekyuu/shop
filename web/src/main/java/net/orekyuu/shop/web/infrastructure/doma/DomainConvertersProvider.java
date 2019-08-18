@@ -13,7 +13,9 @@ import org.seasar.doma.DomainConverters;
         CircleNameConverter.class,
         ReleaseDateConverter.class,
         WholesalePriceConverter.class,
-        AssetIdConverter.class
+        AssetIdConverter.class,
+        CircleHomePageConverter.class,
+        CircleSupportMailAddressConverter.class
 })
 public class DomainConvertersProvider {
 }
