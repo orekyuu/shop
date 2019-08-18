@@ -1,5 +1,7 @@
 package net.orekyuu.shop.core.domain.model.circle;
 
+import net.orekyuu.shop.identity.domain.model.account.AccountId;
+
 import java.util.Optional;
 
 /**
@@ -11,5 +13,5 @@ public interface CircleRepository {
 
     void update(Circle circle);
 
-    Circle registerCircle(CircleName name);
+    CircleId registerCircle(AccountId account, CircleName name, CircleHomePage homePage, CircleSupportMailAddress mailAddress);
 }

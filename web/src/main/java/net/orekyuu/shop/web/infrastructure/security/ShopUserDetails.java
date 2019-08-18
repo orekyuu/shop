@@ -1,6 +1,7 @@
 package net.orekyuu.shop.web.infrastructure.security;
 
 import net.orekyuu.shop.identity.domain.model.account.Account;
+import net.orekyuu.shop.identity.domain.model.account.AccountId;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.AuthorityUtils;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -17,6 +18,10 @@ public class ShopUserDetails implements UserDetails {
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
         return AuthorityUtils.createAuthorityList("ROLE_USER");
+    }
+
+    public AccountId accountId() {
+        return account.id();
     }
 
     @Override
