@@ -14,4 +14,6 @@ public interface CircleRepository {
     void update(Circle circle);
 
     CircleId registerCircle(AccountId account, CircleName name, CircleHomePage homePage, CircleSupportMailAddress mailAddress);
+
+    Optional<Circle> findByAccount(AccountId accountId);
 }

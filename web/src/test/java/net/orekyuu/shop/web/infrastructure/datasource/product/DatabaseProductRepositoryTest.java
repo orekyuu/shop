@@ -6,7 +6,7 @@ import net.orekyuu.shop.core.domain.model.circle.CircleName;
 import net.orekyuu.shop.core.domain.model.circle.CircleSupportMailAddress;
 import net.orekyuu.shop.core.domain.model.product.*;
 import net.orekyuu.shop.core.domain.type.amount.Amount;
-import net.orekyuu.shop.core.domain.type.assets.AssetId;
+import net.orekyuu.shop.core.domain.model.asset.AssetId;
 import net.orekyuu.shop.identity.domain.model.account.AccountId;
 import net.orekyuu.shop.identity.domain.model.account.AccountMailAddress;
 import net.orekyuu.shop.identity.domain.model.account.Password;

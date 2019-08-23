@@ -1,15 +1,16 @@
 package net.orekyuu.shop.core.domain.model.product;
 
-import net.orekyuu.shop.core.domain.type.assets.AssetId;
+import net.orekyuu.shop.core.domain.model.asset.AssetFile;
+import net.orekyuu.shop.core.domain.model.asset.AssetId;
 
 public class ProductImage {
-    final AssetId imageId;
+    final AssetFile file;
 
-    public ProductImage(AssetId imageId) {
-        this.imageId = imageId;
+    public ProductImage(AssetFile file) {
+        this.file = file;
     }
 
     public AssetId id() {
-        return imageId;
+        return file.id();
     }
 }

@@ -1,4 +1,4 @@
-package net.orekyuu.shop.core.domain.type.assets;
+package net.orekyuu.shop.core.domain.model.asset;
 
 import java.util.UUID;
 
