@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Shop Demo</title>
-    <link rel="stylesheet" href="." th:href="@{/assets/style.css}">
+    <link rel="stylesheet" href="." th:href="@{/assets/style/application.css}">
 </head>
 <body>
 <div class="toppage-header">
@@ -18,5 +18,10 @@
 <div class="toppage-content"></div>
 <div class="toppage-main"></div>
 <div></div>
+<script>document.write('<script src="http://'
+    + location.host.split(':')[0]
+    + ':35729/livereload.js"></'
+    + 'script>')
+</script>
 </body>
 </html>

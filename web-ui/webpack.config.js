@@ -1,27 +1,48 @@
-const ExtractTextPlugin = require('extract-text-webpack-plugin');
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const FixStyleOnlyEntriesPlugin = require("webpack-fix-style-only-entries");
 const path = require('path');
 
 module.exports = {
+    mode: "production",
     context: path.join(__dirname, './src'),
     entry: {
-        style: "./style/application.scss"
+        "style/application": "./style/application.scss",
+        "js/application": "./js/application.js"
     },
     output: {
         path: path.join(__dirname, './build'),
-        filename: '[name].css'
+        filename: '[name].js'
     },
     module: {
         rules: [
             {
-                test: /\.scss$/,
-                use: ExtractTextPlugin.extract({
-                    fallback: 'style-loader',
-                    use: ['css-loader', 'sass-loader']
-                })
-            }
+                test: /\.js$/,
+                exclude: /node_modules/,
+                use: [
+                    {
+                        loader: "babel-loader",
+                        options: {
+                            presets: [["@babel/preset-env", {modules: false}]]
+                        }
+                    }
+                ]
+            },
+            {
+                test: /\.(sc|c)ss$/,
+                use: [
+                    {
+                        loader: MiniCssExtractPlugin.loader,
+                    },
+                    'css-loader',
+                    'sass-loader',
+                ],
+            },
         ]
     },
     plugins: [
-        new ExtractTextPlugin('[name].css')
+        new FixStyleOnlyEntriesPlugin(),
+        new MiniCssExtractPlugin({
+            filename: '[name].css'
+        }),
     ]
 };
