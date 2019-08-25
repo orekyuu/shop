@@ -2,8 +2,12 @@ package net.orekyuu.shop.web.presentation.circle.management;
 
 import net.orekyuu.shop.core.domain.model.asset.AssetFile;
 import net.orekyuu.shop.core.domain.model.asset.AssetId;
-import net.orekyuu.shop.core.domain.model.product.*;
+import net.orekyuu.shop.core.domain.model.product.ProductDescription;
+import net.orekyuu.shop.core.domain.model.product.ProductName;
+import net.orekyuu.shop.core.domain.model.product.ReleaseDate;
+import net.orekyuu.shop.core.domain.model.product.WholesalePrice;
 import net.orekyuu.shop.core.domain.type.amount.Amount;
+import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.web.multipart.MultipartFile;
 
 import javax.validation.constraints.*;
@@ -19,14 +23,14 @@ public class ProductRegistrationRequest {
     @NotBlank
     String description;
     @Future
-    @NotNull
+    @DateTimeFormat(iso = DateTimeFormat.ISO.DATE)
     LocalDate release;
     @Min(500)
     @Max(1_000_000)
     @NotNull
     Long price;
     @Size(min = 1, max = 10)
-    List<MultipartFile> images;
+    MultipartFile[] images = new MultipartFile[1];
 
     ProductName productName() {
         return new ProductName(productName);
@@ -44,13 +48,14 @@ public class ProductRegistrationRequest {
         return new WholesalePrice(new Amount(price.intValue()));
     }
 
-    ProductImages images() throws IOException {
-        ArrayList<ProductImage> files = new ArrayList<>();
+    List<AssetFile> files() throws IOException {
+        ArrayList<AssetFile> files = new ArrayList<>();
         for (MultipartFile file : this.images) {
-            AssetFile f = new AssetFile(file.getBytes(), new AssetId());
-            ProductImage image = new ProductImage(f);
-            files.add(image);
+            if (file == null) {
+                continue;
+            }
+            files.add(new AssetFile(file.getBytes(), AssetId.fromFileName(file.getOriginalFilename()), file.getContentType()));
         }
-        return new ProductImages(files);
+        return files;
     }
 }

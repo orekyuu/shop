@@ -6,10 +6,12 @@ import java.io.InputStream;
 public class AssetFile {
     final byte[] bytes;
     final AssetId assetId;
+    final String contentType;
 
-    public AssetFile(byte[] bytes, AssetId assetId) {
+    public AssetFile(byte[] bytes, AssetId assetId, String contentType) {
         this.bytes = bytes;
         this.assetId = assetId;
+        this.contentType = contentType;
     }
 
     public AssetId id() {
@@ -18,5 +20,9 @@ public class AssetFile {
 
     public InputStream inputStream() {
         return new ByteArrayInputStream(bytes);
+    }
+
+    public String contentType() {
+        return contentType;
     }
 }

@@ -9,6 +9,14 @@ public class AssetId {
         this.value = UUID.randomUUID().toString();
     }
 
+    public static AssetId fromFileName(String fileName) {
+        String id = UUID.randomUUID().toString();
+        if (fileName != null) {
+            id = id + "_" + fileName;
+        }
+        return new AssetId(id);
+    }
+
     @Deprecated
     public AssetId(String value) {
         this.value = value;
