@@ -16,5 +16,5 @@ public interface AssetRepository {
 
     void uploadPublicZipFile(AssetFile file);
 
-    Optional<URL> findPublicUrlByAssetId(AssetId assetId);
+    Optional<String> findPublicUrlByAssetId(AssetId assetId);
 }

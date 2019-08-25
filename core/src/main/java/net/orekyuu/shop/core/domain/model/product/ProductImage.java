@@ -12,4 +12,8 @@ public class ProductImage {
     public AssetId id() {
         return file;
     }
+
+    public String url() {
+        return "http://localhost:9000/shop-demo/" + id().value();
+    }
 }

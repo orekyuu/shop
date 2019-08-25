@@ -1,6 +1,7 @@
 package net.orekyuu.shop.core.domain.model.product;
 
 import net.orekyuu.shop.core.domain.model.circle.CircleId;
+import net.orekyuu.shop.core.domain.type.amount.Amount;
 
 /**
  * 作品
@@ -24,12 +25,20 @@ public class Product {
         this.productImages = productImages;
     }
 
+    public Amount taxIncludedPrice() {
+        return price.taxExcluded();
+    }
+
     public ProductId id() {
         return id;
     }
 
     public ProductImages images() {
         return productImages;
+    }
+
+    public ProductImage thumbnail() {
+        return productImages.stream().findFirst().orElseThrow();
     }
 
     public void addImage(ProductImage image) {

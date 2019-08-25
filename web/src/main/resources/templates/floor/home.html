@@ -13,6 +13,19 @@
 </th:block>
 
 <th:block layout:fragment="center">
-    hogehoge
+    <section>
+        <h1 class="section-title">新着作品</h1>
+        <section>
+            <h1 class="section-title">ゲーム</h1>
+            <div class="product-box-list">
+                <div class="product-box" th:each="product : ${newProducts}">
+                    <img class="product-box-thumbnail" src="" alt="" th:src="${product.thumbnail().url()}">
+                    <div class="product-name"><a href="" th:text="${product.name().text()}">作品名</a></div>
+                    <div class="circle"><a href="">サークル名</a></div>
+                    <div class="price" th:text="${product.taxIncludedPrice()}">1,000円</div>
+                </div>
+            </div>
+        </section>
+    </section>
 </th:block>
 </html>

@@ -47,9 +47,9 @@ public class AssetRepositoryImpl implements AssetRepository {
     }
 
     @Override
-    public Optional<URL> findPublicUrlByAssetId(AssetId assetId) {
+    public Optional<String> findPublicUrlByAssetId(AssetId assetId) {
         URL url = amazonS3.getUrl("shop-demo", assetId.value());
-        return Optional.ofNullable(url);
+        return Optional.ofNullable(url).map(URL::toString);
     }
 
     private void uploadZipFile(AssetFile file, AccessControlList acl) {
