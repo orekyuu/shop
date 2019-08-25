@@ -1,5 +1,11 @@
 @import "flat_design_colors_full";
 @import "~ress";
+
+$fa-font-path: "~@fortawesome/fontawesome-free/webfonts/";
+@import "~@fortawesome/fontawesome-free/scss/fontawesome";
+@import "~@fortawesome/fontawesome-free/scss/solid";
+@import "~@fortawesome/fontawesome-free/scss/brands";
+
 @import "component/_form";
 @import "common";
 @import "component/_floor";

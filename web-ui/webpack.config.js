@@ -1,5 +1,6 @@
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const FixStyleOnlyEntriesPlugin = require("webpack-fix-style-only-entries");
+const { VueLoaderPlugin } = require("vue-loader");
 const path = require('path');
 
 module.exports = {
@@ -28,7 +29,12 @@ module.exports = {
                 ]
             },
             {
+                test: /\.vue$/,
+                loader: "vue-loader"
+            },
+            {
                 test: /\.(sc|c)ss$/,
+                exclude: /node_modules/,
                 use: [
                     {
                         loader: MiniCssExtractPlugin.loader,
@@ -37,12 +43,32 @@ module.exports = {
                     'sass-loader',
                 ],
             },
+            {
+                test: /\.(ttf|eot|svg|gif|woff|woff2)(\?v=[0-9]\.[0-9]\.[0-9])?$/,
+                use: [{
+                    loader: 'file-loader',
+                    options: {
+                        name: '[name].[ext]',
+                        outputPath : 'files/',
+                        publicPath : function(path){
+                            return '../files/' + path;
+                        }
+                    }
+                }]
+            }
         ]
     },
     plugins: [
         new FixStyleOnlyEntriesPlugin(),
+        new VueLoaderPlugin(),
         new MiniCssExtractPlugin({
             filename: '[name].css'
         }),
-    ]
+    ],
+    resolve: {
+        alias: {
+            vue$: "vue/dist/vue.esm.js"
+        },
+        extensions: ["*", ".js", ".vue", ".json"]
+    },
 };

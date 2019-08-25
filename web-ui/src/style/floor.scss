@@ -4,15 +4,45 @@
   justify-content: space-between;
   padding: 0 16px;
   background-color: white;
+
+  .logo > a {
+    text-decoration: none;
+    color: $belize-hole-800;
+  }
 }
 .floor-tab-wrapper {
   width: 100%;
   display: flex;
   justify-content: space-between;
   padding: 0 16px;
+  border-bottom: solid $belize-hole-500 4px;
+  background-color: $silver-100;
+
   .floor-tab {
     display: flex;
     flex: 1;
+
+    a {
+      color: $belize-hole-500;
+      background-color: $silver-50;
+      &:first-child {
+        border-left: solid $belize-hole-500 1px;
+      }
+      border-right: solid $belize-hole-500 1px;
+
+      font-size: 16px;
+      padding: 8px 0;
+      width: 150px;
+      text-align: center;
+      vertical-align: center;
+      text-decoration: none;
+      font-weight: bold;
+
+      &.active {
+        background-color: $belize-hole-500;
+        color: $silver-50;
+      }
+    }
   }
 
   .floor-tab-submenu {
@@ -36,5 +66,104 @@
 
   .right {
     width: 180px;
+  }
+}
+
+a.floor-tab-info {
+  margin: auto 2px;
+  padding: 2px 4px;
+  background-color: white;
+
+  text-decoration: none;
+  font-size: 14px;
+  vertical-align: middle;
+
+  &.point {
+    span:first-child {
+      font-weight: normal;
+
+      @extend %fa-icon;
+      @extend .fab;
+      &::before {
+        content: fa-content($fa-var-product-hunt);
+      }
+    }
+
+    span:nth-child(2) {
+      color: $green-sea-700;
+      font-weight: bold;
+    }
+  }
+
+  &.coupon {
+    span:first-child {
+      font-weight: normal;
+
+      @extend %fa-icon;
+      @extend .fas;
+      &::before {
+        content: fa-content($fa-var-ticket-alt);
+      }
+    }
+
+    span:nth-child(2) {
+      color: $alizarin-500;
+      font-weight: bold;
+    }
+  }
+}
+
+a.floor-tab-info-button {
+  margin: auto 2px;
+  padding: 2px 4px;
+  font-size: 14px;
+  vertical-align: middle;
+  text-align: center;
+  text-decoration: none;
+  background-color: white;
+
+  &.general {
+     border: solid $nephritis-700 1px;
+     color: $nephritis-700;
+  }
+
+  &.adult {
+    border: solid $alizarin-400 1px;
+    color: $alizarin-400;
+  }
+}
+
+.side-menu-box {
+  border: solid $belize-hole-500 1px;
+  margin: 10px 0;
+
+  h2 {
+    background-color: $belize-hole-500;
+    color: $silver-50;
+    font-size: 16px;
+    padding: 8px;
+  }
+}
+
+
+ul.side-menu {
+  list-style: none;
+
+  li > a {
+    display: block;
+    text-decoration: none;
+    color: $belize-hole-500;
+    font-size: 14px;
+    padding: 8px 10px;
+    background-color: white;
+
+    i {
+      color: $belize-hole-500;
+      margin-right: 6px;
+    }
+
+    &:hover {
+      background-color: $silver-50;
+    }
   }
 }
