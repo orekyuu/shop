@@ -1,4 +1,8 @@
 spring:
+  servlet:
+    multipart:
+      max-file-size: 200MB
+      max-request-size: 200MB
   datasource:
     url: jdbc:mysql://localhost:3306/shop_demo_development?rewriteBatchedStatements=true
     driver-class-name: com.mysql.cj.jdbc.Driver
@@ -17,7 +21,8 @@ spring:
           auth: true
           starttls:
             enable: true
-
+  session:
+    store-type: redis
 doma:
   dialect: mysql
   naming: snake_lower_case

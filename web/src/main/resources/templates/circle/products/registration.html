@@ -1,0 +1,73 @@
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorator="layout/main">
+<head>
+    <title>販売申請</title>
+</head>
+<th:block layout:fragment="layout-content">
+    <div class="login-form-box">
+        <h1 class="login-form-box-header">販売申請</h1>
+        <div class="login-form-box-body">
+            <form action="" method="post" enctype="multipart/form-data" th:action="@{/circle/products/registration}"
+                  th:object="${productRegistrationRequest}">
+                <div class="form-row-wrapper">
+                    <div class="form-label-wrapper">
+                        <label for="productName">作品名</label>
+                    </div>
+                    <div class="form-body-wrapper">
+                        <input id="productName" type="text" th:field="*{productName}"
+                               th:classappend="${#fields.hasErrors('productName') ? 'error' : ''}">
+                        <p th:errors="*{productName}" class="error-message">error</p>
+                    </div>
+                    <div class="form-body-help"></div>
+                </div>
+                <div class="form-row-wrapper">
+                    <div class="form-label-wrapper">
+                        <label for="description">説明文</label>
+                    </div>
+                    <div class="form-body-wrapper">
+                        <textarea id="description" th:field="*{description}"
+                                  th:classappend="${#fields.hasErrors('description') ? 'error' : ''}"></textarea>
+                        <p th:errors="*{description}" class="error-message">error</p>
+                    </div>
+                    <div class="form-body-help"></div>
+                </div>
+                <div class="form-row-wrapper">
+                    <div class="form-label-wrapper">
+                        <label for="description">リリース日</label>
+                    </div>
+                    <div class="form-body-wrapper">
+                        <input id="release" type="date" th:field="*{release}"
+                               th:classappend="${#fields.hasErrors('release') ? 'error' : ''}">
+                        <p th:errors="*{release}" class="error-message">error</p>
+                    </div>
+                    <div class="form-body-help"></div>
+                </div>
+                <div class="form-row-wrapper">
+                    <div class="form-label-wrapper">
+                        <label for="description">卸価格</label>
+                    </div>
+                    <div class="form-body-wrapper">
+                        <input id="price" type="number" th:field="*{price}"
+                               th:classappend="${#fields.hasErrors('price') ? 'error' : ''}">
+                        <p th:errors="*{price}" class="error-message">error</p>
+                    </div>
+                    <div class="form-body-help">サークルに振り込まれる価格です。実際には卸価格に販売手数料+税を含めた価格で販売されます。</div>
+                </div>
+                <div class="form-row-wrapper">
+                    <div class="form-label-wrapper">
+                        <label>作品画像</label>
+                    </div>
+                    <div class="form-body-wrapper">
+                        <input type="file" accept="image/*" th:field="*{images[0]}"
+                               th:classappend="${#fields.hasErrors('images[0]') ? 'error' : ''}">
+                        <p th:errors="*{images[0]}" class="error-message">error</p>
+                    </div>
+                    <div class="form-body-help"></div>
+                </div>
+                <button type="submit">申請する</button>
+            </form>
+        </div>
+    </div>
+</th:block>
+</html>

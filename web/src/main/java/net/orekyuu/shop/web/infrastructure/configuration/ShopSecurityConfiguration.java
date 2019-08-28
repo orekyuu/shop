@@ -25,7 +25,9 @@ public class ShopSecurityConfiguration extends WebSecurityConfigurerAdapter {
 
     @Override
     protected void configure(HttpSecurity http) throws Exception {
-        http.authorizeRequests().anyRequest().permitAll()
+        http.authorizeRequests()
+                .antMatchers("/circle/**").authenticated()
+                .anyRequest().permitAll()
                 .and().formLogin().loginPage("/login").permitAll().loginProcessingUrl("/login").defaultSuccessUrl("/")
                 .and().logout().logoutSuccessUrl("/")
                 .invalidateHttpSession(true).deleteCookies("JSESSIONID")

@@ -1,4 +1,4 @@
-package net.orekyuu.shop.core.domain.type.assets;
+package net.orekyuu.shop.core.domain.model.asset;
 
 import java.util.UUID;
 
@@ -7,6 +7,14 @@ public class AssetId {
 
     public AssetId() {
         this.value = UUID.randomUUID().toString();
+    }
+
+    public static AssetId fromFileName(String fileName) {
+        String id = UUID.randomUUID().toString();
+        if (fileName != null) {
+            id = id + "_" + fileName;
+        }
+        return new AssetId(id);
     }
 
     @Deprecated

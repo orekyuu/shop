@@ -1,9 +1,13 @@
 package net.orekyuu.shop.web.infrastructure.datasource.product;
 
 import net.orekyuu.shop.core.domain.model.circle.CircleId;
+import net.orekyuu.shop.core.domain.model.floor.Floor;
 import net.orekyuu.shop.core.domain.model.product.*;
 import net.orekyuu.shop.web.infrastructure.util.Collector2;
 import org.seasar.doma.jdbc.Result;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Repository;
 
 import java.time.LocalDateTime;
@@ -25,6 +29,12 @@ public class DatabaseProductRepository implements ProductRepository {
 
     public DatabaseProductRepository(ProductDao dao) {
         this.dao = dao;
+    }
+
+    @Override
+    public List<Product> findNewProductByFloor(int page, Floor floor) {
+        Pageable pageable = PageRequest.of(Math.max(0, page - 1), 20);
+        return dao.findByFloor(pageable, MAPPER);
     }
 
     @Override

@@ -19,4 +19,8 @@ public class Circle {
     public CircleId id() {
         return id;
     }
+
+    public CircleName circleName() {
+        return name;
+    }
 }

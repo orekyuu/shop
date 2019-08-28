@@ -2,7 +2,7 @@ package net.orekyuu.shop.web.infrastructure.datasource.product;
 
 import net.orekyuu.shop.core.domain.model.circle.CircleId;
 import net.orekyuu.shop.core.domain.model.product.*;
-import net.orekyuu.shop.core.domain.type.assets.AssetId;
+import net.orekyuu.shop.core.domain.model.asset.AssetId;
 import org.seasar.doma.Column;
 import org.seasar.doma.Entity;
 

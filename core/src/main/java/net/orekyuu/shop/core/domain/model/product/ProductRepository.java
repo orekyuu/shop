@@ -1,6 +1,7 @@
 package net.orekyuu.shop.core.domain.model.product;
 
 import net.orekyuu.shop.core.domain.model.circle.CircleId;
+import net.orekyuu.shop.core.domain.model.floor.Floor;
 
 import java.time.LocalDateTime;
 import java.util.Collections;
@@ -11,6 +12,8 @@ import java.util.Optional;
  * 作品リポジトリ
  */
 public interface ProductRepository {
+
+    List<Product> findNewProductByFloor(int page, Floor floor);
 
     List<Product> findByIds(Iterable<ProductId> ids);
 

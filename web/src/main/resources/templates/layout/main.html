@@ -2,7 +2,7 @@
 <html xmlns:sec="http://www.thymeleaf.org/extras/spring-security" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" xmlns:th="http://www.thymeleaf.org">
 <head>
     <title layout:title-pattern="$LAYOUT_TITLE - $CONTENT_TITLE">Shop Demo</title>
-    <link rel="stylesheet" href="." th:href="@{/assets/style.css}">
+    <link rel="stylesheet" href="." th:href="@{/assets/style/application.css}">
 </head>
 <body>
 <div class="wrapper">
@@ -28,5 +28,11 @@
         </th:block>
     </div>
 </div>
+<script>document.write('<script src="http://'
+    + location.host.split(':')[0]
+    + ':35729/livereload.js"></'
+    + 'script>')
+</script>
+<script th:src="@{/assets/js/application.js}"></script>
 </body>
 </html>
