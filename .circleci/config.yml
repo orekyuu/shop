@@ -27,6 +27,9 @@ jobs:
           paths:
             - ./web-ui/node_modules
           key: v1-dependencies-{{ checksum "./web-ui/yarn.lock" }}
+      - run:
+          working_directory: web-ui
+          command: yarn run lint
       - run: ./gradlew test
       - run:
           name: Save test results
