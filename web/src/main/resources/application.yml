@@ -1,4 +1,7 @@
 spring:
+  messages:
+    basename: classpath:i18n/messages
+    use-code-as-default-message: true
   servlet:
     multipart:
       max-file-size: 200MB
