@@ -1,16 +1,15 @@
 import Vue from "vue"
-import ProductList from "./component/ProductList";
+import VueRouter from 'vue-router'
+import { fetchMessages } from "./api"
+import App from "./App";
 
-Vue.component("ProductList", ProductList);
+Vue.use(VueRouter);
 
-function mountComponents(selector, tag) {
-    const items = document.querySelectorAll(selector);
-    items.forEach((el, _) => {
-        const vm = new Vue({
-            el: el,
-            template: `<${tag}/>`
-        });
+fetchMessages().then(messages => {
+    console.log(messages);
+    const app = new Vue({
+        el: "#app",
+        components: { App },
+        template: "<App/>"
     });
-}
-
-mountComponents(".product-list", "ProductList");
+});

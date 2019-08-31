@@ -4,7 +4,7 @@ const { VueLoaderPlugin } = require("vue-loader");
 const path = require('path');
 
 module.exports = {
-    mode: "production",
+    mode: "development",
     context: path.join(__dirname, './src'),
     entry: {
         "style/application": "./style/application.scss",
@@ -23,7 +23,12 @@ module.exports = {
                     {
                         loader: "babel-loader",
                         options: {
-                            presets: [["@babel/preset-env", {modules: false}]]
+                            presets: [
+                                [
+                                    "@babel/preset-env",
+                                    {modules: false}
+                                ]
+                            ]
                         }
                     }
                 ]
