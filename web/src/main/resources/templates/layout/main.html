@@ -3,6 +3,7 @@
 <head>
     <title layout:title-pattern="$LAYOUT_TITLE - $CONTENT_TITLE">Shop Demo</title>
     <link rel="stylesheet" href="." th:href="@{/assets/style/application.css}">
+    <meta id="_csrf" th:value="${_csrf.getToken()}"/>
 </head>
 <body>
 <div class="wrapper">
@@ -28,6 +29,7 @@
         </th:block>
     </div>
 </div>
+<div data-th-data-initial-data="${initialData.toJsonString()}" id="initialData"></div>
 <script>document.write('<script src="http://'
     + location.host.split(':')[0]
     + ':35729/livereload.js"></'

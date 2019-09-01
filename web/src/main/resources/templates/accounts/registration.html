@@ -5,17 +5,6 @@
         <title>新規登録</title>
     </head>
     <th:block layout:fragment="layout-content">
-        <div class="login-form-box">
-            <h1 class="login-form-box-header">新規登録</h1>
-            <div class="login-form-box-body">
-                <div class="login-form-box-body-inline">
-                    <form th:action="@{/accounts/registration/mail}" method="post" action="" class="register-account-send-mail-form">
-                        <div class="register-form-header">メールアドレスで登録</div>
-                        <input name="mail" class="register-form-mail" type="email" placeholder="メールアドレス">
-                        <button class="register-form-submit" type="submit">メール送信</button>
-                    </form>
-                </div>
-            </div>
-        </div>
+        <div id="app"></div>
     </th:block>
 </html>
