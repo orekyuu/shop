@@ -2,21 +2,14 @@
   <div>
     <FloorHeader />
     <FloorTab />
-    <div class="floor-content-wrapper">
-      <div class="left">
-        <div class="side-menu-box">
-          <h2>サイドメニュー</h2>
-          <ul class="side-menu">
-            <li><a href=""><i class="fas fa-star" /> メニュー1</a></li>
-            <li><a href=""><i class="fas fa-star" />メニュー2</a></li>
-            <li><a href=""><i class="fas fa-star" />メニュー3</a></li>
-          </ul>
-        </div>
+    <ThreeColumn>
+      <template v-slot:left>
+        <SideMenu title="サイドメニュー" :menu="[{ href: '.', icon: 'fas fa-star', text: 'メニュー1' },{ href: '.', icon: 'fas fa-star', text: 'メニュー1' }, { href: '.', icon: 'fas fa-star', text: 'メニュー1' }]"/>
         <div class="side-menu-box">
           <h2>作品特集</h2>
         </div>
-      </div>
-      <div class="center">
+      </template>
+      <template v-slot:center>
         <section>
           <h1 class="section-title">
             新着作品
@@ -25,25 +18,33 @@
             <h1 class="section-title">
               ゲーム
             </h1>
-            <div class="product-list" />
+            <ProductList :products="newProducts"/>
           </section>
         </section>
-      </div>
-      <div class="right">
+      </template>
+      <template v-slot:right>
         <div class="side-menu-box">
           <h2>週間ランキング</h2>
         </div>
-      </div>
-    </div>
+      </template>
+    </ThreeColumn>
   </div>
 </template>
 
 <script>
 import FloorHeader from '../component/FloorHeader'
 import FloorTab from '../component/FloorTab'
+import ProductList from "../component/ProductList";
+import ThreeColumn from "../layout/ThreeColumn";
+import SideMenu from "../component/SideMenu";
 export default {
   name: 'Home',
-  components: { FloorTab, FloorHeader }
+  components: {SideMenu, ThreeColumn, FloorTab, FloorHeader, ProductList },
+  data() {
+    return {
+      newProducts: window.initialData.newProducts
+    }
+  }
 }
 </script>
 

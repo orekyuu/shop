@@ -1,4 +1,4 @@
-package net.orekyuu.shop.web.presentation;
+package net.orekyuu.shop.web.presentation.web;
 
 import org.springframework.security.access.prepost.PreAuthorize;
 

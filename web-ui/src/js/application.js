@@ -6,7 +6,14 @@ import App from './App'
 Vue.use(VueRouter)
 
 fetchMessages().then(messages => {
-  console.log(messages)
+  const initialDataElement = document.getElementById("initialData");
+  const initialData = initialDataElement.dataset.initialData
+  if (initialData == null) {
+    throw new Error("invalid initialData")
+  }
+  window.initialData = JSON.parse(initialData);
+  window.messages = messages
+
   const app = new Vue({
     components: { App },
     template: '<App/>'

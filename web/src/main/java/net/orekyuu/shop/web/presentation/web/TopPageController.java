@@ -1,4 +1,4 @@
-package net.orekyuu.shop.web.presentation;
+package net.orekyuu.shop.web.presentation.web;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;

@@ -1,4 +1,4 @@
-package net.orekyuu.shop.web.presentation.account;
+package net.orekyuu.shop.web.presentation.web.account;
 
 import net.orekyuu.shop.identity.domain.model.account.AccountMailAddress;
 import net.orekyuu.shop.web.application.repository.account.AccountRegistrationService;

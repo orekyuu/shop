@@ -41,6 +41,10 @@ public class Product {
         return productImages.stream().findFirst().orElseThrow();
     }
 
+    public ProductDescription description() {
+        return description;
+    }
+
     public void addImage(ProductImage image) {
         productImages = productImages.plus(image);
     }

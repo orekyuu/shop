@@ -1,4 +1,4 @@
-package net.orekyuu.shop.web.presentation.circle;
+package net.orekyuu.shop.web.presentation.web.circle;
 
 
 import net.orekyuu.shop.core.domain.model.circle.CircleHomePage;

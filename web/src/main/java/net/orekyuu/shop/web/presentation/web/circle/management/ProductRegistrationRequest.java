@@ -1,4 +1,4 @@
-package net.orekyuu.shop.web.presentation.circle.management;
+package net.orekyuu.shop.web.presentation.web.circle.management;
 
 import net.orekyuu.shop.core.domain.model.asset.AssetFile;
 import net.orekyuu.shop.core.domain.model.asset.AssetId;

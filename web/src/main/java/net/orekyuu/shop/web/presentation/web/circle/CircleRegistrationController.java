@@ -1,8 +1,8 @@
-package net.orekyuu.shop.web.presentation.circle;
+package net.orekyuu.shop.web.presentation.web.circle;
 
 import net.orekyuu.shop.web.application.service.circle.CircleService;
 import net.orekyuu.shop.web.infrastructure.security.ShopUserDetails;
-import net.orekyuu.shop.web.presentation.Authenticated;
+import net.orekyuu.shop.web.presentation.web.Authenticated;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
