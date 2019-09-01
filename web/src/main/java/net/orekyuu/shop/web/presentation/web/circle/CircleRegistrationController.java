@@ -33,7 +33,12 @@ public class CircleRegistrationController {
     @GetMapping
     public String show(@ModelAttribute("initialData") FrontInitialData frontInitialData,
                        @ModelAttribute CircleRegistrationForm form) {
-        frontInitialData.addJsonObject("mailForm", new FormAndValidation<>(form));
+        frontInitialData.addJsonObject("circleRegistrationForm", new FormAndValidation<>(form));
+        return "circle/registration/show";
+    }
+
+    @GetMapping("complete")
+    public String complete() {
         return "circle/registration/show";
     }
 
@@ -43,12 +48,12 @@ public class CircleRegistrationController {
             @Validated @ModelAttribute CircleRegistrationForm form, BindingResult result,
             @AuthenticationPrincipal ShopUserDetails user) {
         if (result.hasErrors()) {
-            frontInitialData.addJsonObject("mailForm", new FormAndValidation<>(form, result));
+            frontInitialData.addJsonObject("circleRegistrationForm", new FormAndValidation<>(form, result));
             return "circle/registration/show";
         }
 
         service.registration(user.accountId(), form.circleName(), form.homePage(), form.supportMailAddress());
 
-        return "circle/registration/complete";
+        return "redirect:/circle/registration/complete";
     }
 }

@@ -3,7 +3,7 @@
     <p
       v-for="e in error"
       :key="e"
-      class="error"
+      class="error-message"
     >
       {{ e }}
     </p>
@@ -14,7 +14,7 @@
 export default {
   name: 'FromErrorMessages',
   props: {
-    error: { type: Array, required: true }
+    error: { type: Array, required: false, default: () => [] }
   }
 }
 </script>
