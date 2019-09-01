@@ -4,27 +4,18 @@ import net.orekyuu.shop.identity.domain.model.account.AccountId;
 import net.orekyuu.shop.identity.domain.model.account.Password;
 
 import javax.validation.constraints.AssertTrue;
+import javax.validation.constraints.Email;
+import javax.validation.constraints.NotEmpty;
 
 public class AccountRegistrationForm {
-    String username;
-    String password;
-    String passwordConfirm;
-    String token;
-
-    @AssertTrue(message = "ユーザー名を入力してください")
-    boolean isUserNameValid() {
-        return !username.isBlank();
-    }
-
-    @AssertTrue(message = "パスワードを入力してください")
-    boolean isPasswordValid() {
-        return !password.isBlank();
-    }
-
-    @AssertTrue(message = "確認用パスワードに誤りがあります")
-    boolean isPasswordConfirmValid() {
-        return password.equals(passwordConfirm);
-    }
+    @NotEmpty
+    public String username;
+    @NotEmpty
+    public String password;
+    @NotEmpty
+    public String passwordConfirm;
+    @NotEmpty
+    public String token;
 
     AccountId accountId() {
         return new AccountId(username);

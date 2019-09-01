@@ -3,6 +3,7 @@
 <head>
     <title layout:title-pattern="$LAYOUT_TITLE - $CONTENT_TITLE">Shop Demo</title>
     <link rel="stylesheet" href="." th:href="@{/assets/style/application.css}">
+    <meta id="_csrf" th:value="${_csrf.getToken()}"/>
 </head>
 <body>
 <div class="wrapper">

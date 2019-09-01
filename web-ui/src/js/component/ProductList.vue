@@ -25,7 +25,7 @@
 <script>
 export default {
   props: {
-    products: Array
+    products: { type: Array, required: true }
   }
 }
 </script>

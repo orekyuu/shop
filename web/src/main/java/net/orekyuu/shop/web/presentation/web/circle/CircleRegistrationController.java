@@ -2,7 +2,9 @@ package net.orekyuu.shop.web.presentation.web.circle;
 
 import net.orekyuu.shop.web.application.service.circle.CircleService;
 import net.orekyuu.shop.web.infrastructure.security.ShopUserDetails;
+import net.orekyuu.shop.web.presentation.json.FormAndValidation;
 import net.orekyuu.shop.web.presentation.web.Authenticated;
+import net.orekyuu.shop.web.presentation.web.FrontInitialData;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
@@ -29,13 +31,19 @@ public class CircleRegistrationController {
     }
 
     @GetMapping
-    public String show() {
+    public String show(@ModelAttribute("initialData") FrontInitialData frontInitialData,
+                       @ModelAttribute CircleRegistrationForm form) {
+        frontInitialData.addJsonObject("mailForm", new FormAndValidation<>(form));
         return "circle/registration/show";
     }
 
     @PostMapping
-    public String registration(@Validated @ModelAttribute CircleRegistrationForm form, BindingResult result, @AuthenticationPrincipal ShopUserDetails user) {
+    public String registration(
+            @ModelAttribute("initialData") FrontInitialData frontInitialData,
+            @Validated @ModelAttribute CircleRegistrationForm form, BindingResult result,
+            @AuthenticationPrincipal ShopUserDetails user) {
         if (result.hasErrors()) {
+            frontInitialData.addJsonObject("mailForm", new FormAndValidation<>(form, result));
             return "circle/registration/show";
         }
 
