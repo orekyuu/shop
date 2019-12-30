@@ -75,7 +75,7 @@ project("web") {
         implementation 'org.thymeleaf.extras:thymeleaf-extras-springsecurity5:3.0.4.RELEASE'
 
         implementation 'org.seasar.doma.boot:doma-spring-boot-starter:1.1.1'
-        implementation('org.seasar.doma:doma:2.24.0')
+        implementation('org.seasar.doma:doma:2.26.0')
         annotationProcessor('org.seasar.doma:doma:2.24.0')
         runtimeOnly 'mysql:mysql-connector-java'
         implementation 'org.flywaydb:flyway-core'
