@@ -80,7 +80,7 @@ project("web") {
         runtimeOnly 'mysql:mysql-connector-java'
         implementation 'org.flywaydb:flyway-core'
 
-        implementation 'io.lettuce:lettuce-core:5.1.8.RELEASE'
+        implementation 'io.lettuce:lettuce-core:6.0.1.RELEASE'
 
         implementation 'net.orekyuu:kt-mapper:0.0.2'
 
