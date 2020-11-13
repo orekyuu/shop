@@ -62,7 +62,7 @@ project("web") {
     }
 
     dependencies {
-        implementation platform('org.springframework.boot:spring-boot-dependencies:2.1.7.RELEASE')
+        implementation platform('org.springframework.boot:spring-boot-dependencies:2.4.0')
         implementation platform('org.springframework.cloud:spring-cloud-dependencies:Greenwich.SR2')
 
         implementation 'org.springframework.boot:spring-boot-starter-actuator'
