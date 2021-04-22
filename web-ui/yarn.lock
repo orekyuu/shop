@@ -5199,10 +5199,10 @@ resolve@^1.10.1, resolve@^1.11.0, resolve@^1.3.2, resolve@^1.5.0:
   dependencies:
     path-parse "^1.0.6"
 
-ress@^1.2.2:
-  version "1.2.2"
-  resolved "https://registry.yarnpkg.com/ress/-/ress-1.2.2.tgz#4fd00681c8d3ceaa79f5de1e54aaad15617e9777"
-  integrity sha1-T9AGgcjTzqp59d4eVKqtFWF+l3c=
+ress@^4.0.0:
+  version "4.0.0"
+  resolved "https://registry.yarnpkg.com/ress/-/ress-4.0.0.tgz#784200da045548f67c26ca35dc18ff764b924c7d"
+  integrity sha512-awpQM9e6VL6ljw4XuH/ww2q4IEU0SAY9Lcvu4h4nIB5c5XhTUXH3Me8WA0zW3s3naU79lY8uVUJg30dvKJ5cNw==
 
 restore-cursor@^2.0.0:
   version "2.0.0"
